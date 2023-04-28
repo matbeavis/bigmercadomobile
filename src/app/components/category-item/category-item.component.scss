@@ -1,0 +1,25 @@
+ion-card {
+  box-shadow: none;
+}
+
+#image {
+  height: 60px;
+  width: 75px;
+  background-position: center !important;
+  background-size: cover !important;
+  border: 2px solid var(--ion-color-primary);
+  border-radius: 10px;
+
+  ion-img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+ion-card-header {
+  padding: 10px 5px;
+
+  ion-card-title {
+    font-size: 0.7rem;
+  }
+}

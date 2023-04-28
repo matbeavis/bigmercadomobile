@@ -1,0 +1,67 @@
+.image-container {
+  margin-top: 8vh;
+  display: flex;
+  justify-content: center;
+
+  ion-img {
+    width: 70%;
+  }
+}
+
+.message-container {
+  margin-top: 6vh;
+  margin-bottom: 5vh;
+  text-align: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--ion-color-dark-tint);
+  }
+
+  .text-warning {
+    color: var(--ion-color-warning);
+  }
+
+  .text-danger {
+    color: var(--ion-color-danger-tint);
+  }
+}
+
+.socio-login-container {
+  border-top: 1px solid var(--ion-color-medium);
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    top: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: -8px;
+    background: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: small;
+    font-weight: 500;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2vh;
+    justify-content: space-around;
+    width: 35%;
+  }
+
+  .socio-icon {
+    width: 40px;
+    height: 40px;
+
+    ion-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

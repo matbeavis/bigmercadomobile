@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Image -->
+  <div class="image-container">
+    <ion-img [src]="product.image"></ion-img>
+  </div>
+
+  <!-- Detail -->
+  <div class="item-detail">
+    <h1 class="ion-no-margin">{{product.name}}</h1>
+    <div class="item-qty">
+      <ion-buttons>
+        <ion-button>
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <div class="qty">
+        <h1>2Kg</h1>
+      </div>
+      <ion-buttons>
+        <ion-button>
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+
+  <div class="description">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum cum sequi, atque eligendi esse dolores omnis
+      reiciendis non ratione aperiam? <a href="">mais...</a></p>
+  </div>
+
+  <!-- More Info -->
+  <div class="more-info">
+    <div class="info-item">
+      <ion-icon name="star"></ion-icon>
+      <span>4.5</span>
+    </div>
+    <div class="info-item">
+      <ion-icon name="flame-outline"></ion-icon>
+      <span>100 Kcal</span>
+    </div>
+    <div class="info-item">
+      <ion-icon name="alarm-outline"></ion-icon>
+      <span>8-10 Min</span>
+    </div>
+  </div>
+
+  <!-- Related items -->
+  <h4>Related Items</h4>
+  <div class="product-list">
+    <product-card *ngFor="let product of relatedItems" [product]="product"></product-card>
+  </div>
+
+<!-- AddToCart Button -->
+<div class="cart-button">
+  <ion-button expand="block" (click)="addToCart()">Adicionar ao carrinho</ion-button>
+</div>
