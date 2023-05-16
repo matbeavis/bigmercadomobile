@@ -5,9 +5,9 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoryItemModule } from 'src/app/components/category-item/category-item.module';
-import{AngularFireModule}from'@angular/fire';
-import{AngularFirestoreModule}from'@angular/fire/firestore';
-import{firebaseConfig}from'./services/firebase';
+//import{AngularFireModule}from'@angular/fire';
+//import{AngularFirestoreModule}from'@angular/fire/firestore';
+//import{firebaseConfig}from'./services/firebase';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +17,8 @@ import{firebaseConfig}from'./services/firebase';
     IonicModule.forRoot(),
     AppRoutingModule,
     CategoryItemModule // Adicione o módulo aqui
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    //AngularFireModule.initializeApp(firebaseConfig),
+    //AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
