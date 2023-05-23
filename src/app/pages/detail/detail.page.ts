@@ -6,6 +6,8 @@ import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cart-item.model';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-detail',
@@ -13,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  itemId: number;
+  itemId: string;
   product!: Product;
   relatedItems!: Product[];
 
@@ -24,14 +26,22 @@ export class DetailPage implements OnInit {
     private toastController: ToastController,
     private router: Router
   ) {
-    this.itemId = +this.activatedRoute.snapshot.params['id'];
+    this.itemId = this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.product = this.productService.getById(this.itemId);
-    this.relatedItems = this.productService
-      .getAll()
-      .filter((item) => item.id !== this.product.id);
+    this.productService.getById(this.itemId).subscribe((product: Product) => {
+      this.product = product;
+      this.getRelatedItems();
+    });
+  }
+
+  getRelatedItems() {
+    this.productService.getAll().pipe(
+      map((items: Product[]) => items.filter((item) => item.id !== this.product.id))
+    ).subscribe((items: Product[]) => {
+      this.relatedItems = items;
+    });
   }
 
   async addToCart() {
