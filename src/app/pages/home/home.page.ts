@@ -25,8 +25,8 @@ export class HomePage implements OnInit {
     private categoryService: CategoryService
   ) {}
 
-  ngOnInit() {
-    this.categories = this.categoryService.getAll();
-    this.products = this.productService.getAll();
+  async ngOnInit() {
+    this.categories = await this.categoryService.getAll();
+    this.products = await this.productService.getAll();
   }
 }
