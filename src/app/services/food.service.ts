@@ -8,7 +8,7 @@ export class FoodService {
   getFoods(): Food[] {
     return [
       {
-        id: 1,
+        id: '1',
         title: 'Frutos do Mar',
         price: 12,
         image: 'assets/images/foods/seafood-dishes.png',
@@ -16,7 +16,7 @@ export class FoodService {
           'Frutos do Mar fresquinhos para você!',
       },
       {
-        id: 2,
+        id: '2',
         title: 'Hamburger',
         price: 21,
         image: 'assets/images/foods/hamburger.png',
@@ -24,7 +24,7 @@ export class FoodService {
           'Suculento e de melhor qualidade, derrete na boca!',
       },
       {
-        id: 3,
+        id: '3',
         title: 'Mexilhões',
         price: 16,
         image: 'assets/images/foods/mussel.png',
@@ -32,7 +32,7 @@ export class FoodService {
           'Mexilhões importados diretamente da fenda do biquini',
       },
       {
-        id: 4,
+        id: '4',
         title: 'Pizza',
         price: 20,
         image: 'assets/images/foods/pizza.png',
@@ -40,7 +40,7 @@ export class FoodService {
           'Pizza Italiana autêntica da familia Patente',
       },
       {
-        id: 5,
+        id: '5',
         title: 'Café da manhã',
         price: 10,
         image: 'assets/images/foods/scott-ish-breakfast.png',
@@ -48,7 +48,7 @@ export class FoodService {
           'Café da manhã americano classico: ovos, pão e bacon ',
       },
       {
-        id: 6,
+        id: '6',
         title: 'Espaguete',
         price: 13,
         image: 'assets/images/foods/tambi.png',
@@ -58,7 +58,7 @@ export class FoodService {
     ];
   }
 
-  getFood(id: number): Food | null {
+  getFood(id: string): Food | null {
     const foodArray = this.getFoods();
     const food = foodArray.find((f) => f.id === id);
     return food ? food : null;

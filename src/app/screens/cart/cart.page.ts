@@ -28,7 +28,7 @@ export class CartPage implements OnInit {
   }
 
   onDecrease(item: CartItem) {
-    if (item.quantity === 1) this.removeFromCart(item);
+    if (item.quantidade === 1) this.removeFromCart(item);
     else this.cartService.changeQty(-1, item.id);
   }
 

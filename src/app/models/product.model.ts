@@ -1,7 +1,17 @@
 export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
+  id: string;
+  nome: string;
+  preco: number;
+  quantidade: number;
+  imgURL: string;
+}
+
+export function createProduto() {
+  return {
+      id: '',
+      nome: '',
+      preco: 0,
+      quantidade: 0,
+      imgURL: ''
+  };
 }

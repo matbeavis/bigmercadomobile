@@ -1,11 +1,11 @@
 <div class="cart-item">
   <div class="image">
-    <ion-img [src]="item.image"></ion-img>
+    <ion-img [src]="item.imgURL"></ion-img>
   </div>
 
   <div class="description">
-    <h3>{{item.name}}</h3>
-    <p><sup>$</sup>{{item.price | number:'1.2'}}</p>
+    <h3>{{item.nome}}</h3>
+    <p><sup>$</sup>{{item.preco | number:'1.2'}}</p>
   </div>
 
   <div class="actions">
@@ -14,7 +14,7 @@
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <div class="counter">{{item.quantity}}</div>
+    <div class="counter">{{item.quantidade}}</div>
     <ion-buttons>
       <ion-button (click)="decrease.emit()">
         <ion-icon slot="icon-only" name="remove"></ion-icon>

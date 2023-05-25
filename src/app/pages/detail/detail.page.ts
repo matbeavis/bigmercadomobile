@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  itemId: number;
+  itemId: string;
   product!: Product;
   relatedItems!: Product[];
 
@@ -24,29 +24,40 @@ export class DetailPage implements OnInit {
     private toastController: ToastController,
     private router: Router
   ) {
-    this.itemId = +this.activatedRoute.snapshot.params['id'];
+    this.itemId = this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.product = this.productService.getById(this.itemId);
-    this.relatedItems = this.productService
-      .getAll()
-      .filter((item) => item.id !== this.product.id);
+    this.productService.get(this.itemId)
+      .then((data) => {
+        this.product = data;
+      })
+      .catch((error) => {
+        console.error('Ocorreu um erro ao obter os dados do produto:', error);
+      });
+
+    this.productService.getAll()
+      .then((data: Product[]) => {
+        this.relatedItems = data.filter((item) => item.id !== this.product.id);
+      })
+      .catch((error) => {
+        console.error('Ocorreu um erro ao obter os dados dos itens relacionados:', error);
+      });
   }
 
   async addToCart() {
     const cartItem = this.cartService.getItemById(this.product.id);
     if (cartItem) {
       // item already in cart, increase quantity
-      this.cartService.changeQty(cartItem.id, cartItem.quantity + 1);
+      this.cartService.changeQty(cartItem.quantidade + 1, cartItem.id);
     } else {
       // item not in cart, add it
       const newItem: CartItem = {
         id: this.product.id,
-        name: this.product.name,
-        price: this.product.price,
-        image: this.product.image,
-        quantity: 1,
+        nome: this.product.nome,
+        preco: this.product.preco,
+        imgURL: this.product.imgURL,
+        quantidade: 1,
       };
       this.cartService.addToCart(newItem);
     }
@@ -55,7 +66,7 @@ export class DetailPage implements OnInit {
     const toast = await this.toastController.create({
       message: 'Item adicionado ao carrinho',
       duration: 2000,
-      position: 'bottom'
+      position: 'bottom',
     });
     toast.present();
   }

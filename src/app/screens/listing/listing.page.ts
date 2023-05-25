@@ -49,7 +49,7 @@ export class ListingPage implements OnInit {
     ];
   }
 
-  goToDetailPage(id: number) {
+  goToDetailPage(id: string) {
     this.router.navigate(['detail', id]);
   }
 }

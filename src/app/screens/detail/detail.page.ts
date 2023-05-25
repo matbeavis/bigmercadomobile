@@ -12,7 +12,7 @@ import { FoodService } from 'src/app/services/food.service';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  id: number;
+  id: string;
   food: Food;
 
   constructor(
@@ -31,10 +31,10 @@ export class DetailPage implements OnInit {
   addItemToCart() {
     const cartitem: CartItem = {
       id: this.food.id,
-      name: this.food.title,
-      price: this.food.price,
-      image: this.food.image,
-      quantity: 1,
+      nome: this.food.title,
+      preco: this.food.price,
+      imgURL: this.food.image,
+      quantidade: 1,
     };
 
     this.cartService.addToCart(cartitem);

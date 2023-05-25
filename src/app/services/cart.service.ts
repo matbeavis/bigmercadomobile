@@ -9,11 +9,11 @@ import { map } from 'rxjs/operators';
 export class CartService {
   private items$ = new BehaviorSubject<CartItem[]>([
     {
-      id: 1,
-      name: 'Frutos do Mar',
-      price: 12,
-      image: 'assets/images/foods/seafood-dishes.png',
-      quantity: 1,
+      id: 'id1',
+      nome: 'Frutos do Mar',
+      preco: 12,
+      imgURL: 'assets/images/foods/seafood-dishes.png',
+      quantidade: 1,
     },
   ]);
 
@@ -25,14 +25,14 @@ export class CartService {
     this.items$.next([...this.items$.getValue(), newItem]);
   }
 
-  removeItem(id: number) {
+  removeItem(id: string) {
     this.items$.next(this.items$.getValue().filter((item) => item.id !== id));
   }
 
-  changeQty(quantity: number, id: number) {
+  changeQty(quantidade: number, id: string) {
     const items = this.items$.getValue();
     const index = items.findIndex((item) => item.id === id);
-    items[index].quantity += quantity;
+    items[index].quantidade += quantidade;
     this.items$.next(items);
   }
 
@@ -41,14 +41,14 @@ export class CartService {
       map((items) => {
         let total = 0;
         items.forEach((item) => {
-          total += item.quantity * item.price;
+          total += item.quantidade * item.preco;
         });
 
         return total;
       })
     );
   }
-  getItemById(id: number): CartItem | null {
+  getItemById(id: string): CartItem | null {
     const items = this.items$.getValue();
     const index = items.findIndex((item) => item.id === id);
     if (index === -1) {

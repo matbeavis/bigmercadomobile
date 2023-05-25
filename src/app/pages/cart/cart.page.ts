@@ -16,13 +16,13 @@ export class CartPage implements OnInit {
   }
 
   incrementItem(item: any) {
-    item.quantity += 1;
+    item.quantidade += 1;
     this.saveCart();
   }
 
   decrementItem(item: any) {
-    if (item.quantity > 1) {
-      item.quantity -= 1;
+    if (item.quantidade > 1) {
+      item.quantidade -= 1;
     } else {
       this.removeFromCart(item);
     }
