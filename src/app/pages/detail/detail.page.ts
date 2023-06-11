@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/models/product.model';
+import { Product, createProduto } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cart-item.model';
@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  itemId: string;
-  product!: Product;
+  itemId: string = "";
+  product: Product = createProduto();
   relatedItems!: Product[];
 
   constructor(
@@ -24,10 +24,12 @@ export class DetailPage implements OnInit {
     private toastController: ToastController,
     private router: Router
   ) {
-    this.itemId = this.activatedRoute.snapshot.params['id'];
+    
   }
 
   ngOnInit() {
+    this.itemId = this.activatedRoute.snapshot.params['id'];
+
     this.productService.get(this.itemId)
       .then((data) => {
         this.product = data;

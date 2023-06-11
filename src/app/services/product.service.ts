@@ -17,8 +17,7 @@ export class ProductService {
       this.firestoreDB, 'produtos');
 
     const produtosSnapshot = await getDocs(produtosCol);
-    const produtosList: Product[] = produtosSnapshot.docs
-                          .map(
+    const produtosList: Product[] = produtosSnapshot.docs.map(
                               (doc)=>{
                                 const docData = {...doc.data()};
                                 return {

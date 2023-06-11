@@ -17,8 +17,8 @@ import { CategoryItemModule } from 'src/app/components/category-item/category-it
     IonicModule.forRoot(),
     AppRoutingModule,
     CategoryItemModule // Adicione o módulo aqui
-    //AngularFireModule.initializeApp(firebaseConfig),
-    //AngularFirestoreModule
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

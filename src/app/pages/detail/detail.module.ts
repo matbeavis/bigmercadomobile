@@ -8,18 +8,18 @@ import { DetailPageRoutingModule } from './detail-routing.module';
 
 import { DetailPage } from './detail.page';
 import { CategoryItemModule } from 'src/app/components/category-item/category-item.module';
-import { ProductCardModule } from 'src/app/components/product-card/product-card.model';
 
+import { ProductCardModule } from 'src/app/components/product-card/product-card.module';
 
 @NgModule({
+  declarations: [ DetailPage ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     DetailPageRoutingModule,
     CategoryItemModule,
-    ProductCardModule,
-  ],
-  declarations: [DetailPage],
+    ProductCardModule
+  ]
 })
 export class DetailPageModule {}

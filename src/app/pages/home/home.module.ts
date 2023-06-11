@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { CategoryItemModule } from 'src/app/components/category-item/category-item.module';
-import { ProductCardModule } from 'src/app/components/product-card/product-card.model';
+import { ProductCardModule } from 'src/app/components/product-card/product-card.module';
 
 @NgModule({
   imports: [
